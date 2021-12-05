@@ -1,0 +1,39 @@
+<div>
+    <h1>DecimalPipe y Porcentaje</h1>
+    <p>
+        Pipe incluidos en Angular - Usualmente en el Common Module
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col md-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+            <p>
+                Saludos {{ nombre }}, es un placer {{ genero | i18nSelect :invitacionMap }} al evento
+            </p>
+           <button 
+                pButton
+                label="Cambiar Perona"
+                icon='pi pi-refresh'
+                (click)="onCambiarCliente('F')"
+                (dblclick)="onCambiarCliente('M')"
+                >
+            </button>
+        </p-fieldset>
+    </div>
+
+    <div class="col md-6">
+        <p-fieldset  legend="i18nPlural Pipe"  [toggleable]="true">
+            <p>
+                Actualmente  {{cliente.length  | i18nPlural : clienteMap }} cliente esperando
+            </p>  
+            <button 
+                pButton
+                label="Borrar Cliente"
+                icon='pi pi-trash'
+                (click)="onBorrarCliente()"
+                >
+            </button>
+        </p-fieldset>
+    </div>
+</div>

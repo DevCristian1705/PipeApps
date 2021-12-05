@@ -1,0 +1,134 @@
+<div class="contenedor-main">
+  <div class="contenido"> 
+      <section class="titulo"> 
+          <span>CREAR LIBRO</span>  
+      </section>
+
+       
+        <form [formGroup]="formUsu" class="FormularioCrear"> 
+          <div class="form">  
+            <span>NOMBRE</span>  
+              <input   
+                p-inputtext
+                formControlName="Nombre"
+                placeholder="Ingresa Nombre" 
+                minlength="4"
+                maxlength="15"
+              > 
+           
+            <span>APELLIDO</span>  
+              <input   
+                p-inputtext
+                formControlName="Apellido"
+                placeholder="Ingresa Apellidoe" 
+                minlength="4"
+                maxlength="15"
+                > 
+ 
+            <span>EMAIL</span>  
+              <input   
+                p-inputtext
+                formControlName="Email"
+                placeholder="Ingresa email" 
+                minlength="4"
+                maxlength="20"
+                > 
+
+          </div>
+ 
+          <button 
+          pButton 
+          label="Guardar" 
+          icon="pi pi-save"
+          [disabled]="!formUsu.valid"
+          (click)="onCrear()"
+          ></button>
+
+        </form> 
+        
+</div>
+
+    
+<div class="ContenidoTabla">
+  <section class="titulo"> 
+          <span>LISTA DE LIBROS</span>  
+  </section>
+  
+  <table class="Tabla"> 
+      <tr style="background-color: orange;">
+        <td>ID</td> 
+        <td>NOMBRE</td> 
+        <td>APELLIDO</td> 
+        <td>EMAIL</td> 
+        <td>FECHA CREACION</td>
+        <td>FECHA ACTUALIZACION</td>
+        <td>ACCION</td>
+      </tr>
+     
+      <tr *ngFor="let usu of usuarios" style="background-color: antiquewhite;">
+          <td>{{usu.id}}</td> 
+          <td>{{usu.nombre}}</td> 
+          <td>{{usu.apellido}}</td> 
+          <td>{{usu.email}}</td> 
+          <td>{{usu.fechaCreacion | date : 'yyyy-MM-dd HH:mm'}}</td> 
+          <td>{{usu.fechaActualizacion | date : 'yyyy-MM-dd HH:mm'}}</td> 
+          <button pButton icon="pi pi-pencil" (click)="onActualizarUsuario(usu)"></button>
+          <button pButton icon="pi pi-trash" (click)="onEliminarUsuario(usu.id)"></button> 
+      </tr> 
+  </table>
+</div>
+
+ 
+ 
+<p-dialog
+[(visible)]="DialogEditar"
+header="EDITAR LIBRO"
+[modal]="true" 
+[baseZIndex]="10000"
+[draggable]="false"
+[resizable]="false"
+class="contenido"
+ >
+
+  <form [formGroup]="formUsu" class="FormularioCrear"> 
+    <div class="form">  
+      <span>NOMBRE</span>  
+        <input   
+          p-inputtext
+          formControlName="Nombre"
+          placeholder="Ingresa Nombre" 
+          minlength="4"
+          maxlength="15"
+        > 
+    
+      <span>APELLIDO</span>  
+        <input   
+          p-inputtext
+          formControlName="Apellido"
+          placeholder="Ingresa Apellidoe" 
+          minlength="4"
+          maxlength="15"
+          > 
+
+      <span>EMAIL</span>  
+        <input   
+          p-inputtext
+          formControlName="Email"
+          placeholder="Ingresa email" 
+          minlength="4"
+          maxlength="20"
+          >  
+    </div> 
+  </form> 
+
+  <button 
+      pButton 
+      label="Editar"
+      icon="pi pi-save" 
+      [disabled]="!formUsu.valid"
+      (click)="onEditar()">
+  </button>
+          
+</p-dialog>
+
+

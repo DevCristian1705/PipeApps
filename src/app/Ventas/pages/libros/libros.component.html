@@ -1,0 +1,105 @@
+<div class="contenedor-main">
+    <div class="contenido"> 
+        <section class="titulo"> 
+            <span>CREAR LIBRO</span>  
+        </section>
+           
+        <form [formGroup]="FormLibro" class="FormularioCrear"> 
+            <div class="form">  
+                <span>TITULO</span>  
+                    <input   
+                    p-inputtext
+                    formControlName="Titulo"
+                    placeholder="Ingresa titulo" 
+                    minlength="4"
+                    maxlength="15"
+                    > 
+                    
+                <span>PRECIO</span> 
+                    <input 
+                    pInputText 
+                    formControlName="Precio"
+                    placeholder="Ingresa precio"
+                    type="number" >
+            </div>
+ 
+            <button
+             pButton 
+             icon="pi pi-save"
+             label="GUARDAR" 
+             [disabled]="!FormLibro.valid"
+            (click)="onCrear()"></button>
+        </form>
+        
+    </div>
+        
+    
+    <div class="ContenidoTabla">
+        <section class="titulo"> 
+                <span>LISTA DE LIBROS</span>  
+        </section>
+        
+        <table class="Tabla">
+            <tr  style="background-color: orange;"> 
+                <td>ID</td>
+                <td>TITULO</td>
+                <td>PRECIO</td>
+                <td>FECHA CREACION</td>
+                <td>FECHA ACTUALIZACION</td>
+                <td>ACCION</td>
+            </tr>
+            <tr *ngFor="let lib of Libros" style="background-color: antiquewhite;"> 
+                <td>{{lib.id}}</td>
+                <td>{{lib.titulo}}</td>
+                <td>{{lib.precio}}</td> 
+                <td>{{lib.fechaCreacion | date : 'yyyy-MM-dd HH.mm'}}</td> 
+                <td>{{lib.fechaActualizacion | date : 'yyyy-MM-dd HH:mm'}}</td> 
+                <button pButton icon="pi pi-pencil" (click)="onActualizarLibro(lib)"></button>
+                <button pButton icon="pi pi-trash" (click)="onEliminarLibro(lib.id)"></button> 
+            </tr>
+        
+        </table>
+    </div>
+</div>
+
+ 
+<p-dialog
+ [(visible)]="DialogEditar"
+ header="EDITAR LIBRO"
+ [modal]="true" 
+ [baseZIndex]="10000"
+ [draggable]="false"
+ [resizable]="false"
+  >
+
+    <form [formGroup]="FormLibro" class="FormularioCrear"> 
+        <div class="form">  
+            <span>TITULO</span>  
+                <input   
+                p-inputtext
+                formControlName="Titulo"
+                placeholder="Ingresa titulo" 
+                minlength="4"
+                maxlength="15"
+                > 
+                
+            <span>PRECIO</span> 
+                <input 
+                pInputText 
+                formControlName="Precio"
+                placeholder="Ingresa precio"
+                type="number" >
+        </div> 
+    </form>
+
+    <button 
+        pButton 
+        label="Editar"
+        icon="pi pi-save" 
+        [disabled]="!FormLibro.valid"
+        (click)="onEditar()">
+    </button>
+            
+</p-dialog>
+
+

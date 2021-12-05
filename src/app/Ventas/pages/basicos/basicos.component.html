@@ -1,0 +1,82 @@
+<div>
+    <h1>Pipe Basico </h1>
+    <p>
+        Pipe -Incluido en el Common Module
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-4">
+        <p-card header="UPPER CASE" 
+                [subheader]="nombreLower | uppercase">
+            {{ nombreLower | uppercase}}
+        </p-card>
+    </div>
+
+    <div class="col-4">
+        <p-card header="LOWER CASE" 
+                [subheader]="nombreUpper | lowercase">
+            {{ nombreUpper | lowercase}}
+        </p-card>
+    </div>
+
+    <div class="col-4">
+        <p-card header="Title CASE" 
+                [subheader]="nombreCompleto | titlecase">
+            {{ nombreCompleto | titlecase}}
+        </p-card>
+    </div>
+</div>
+
+
+
+<div>
+    <h1>DATE | FECHA | PIPE </h1>
+    <p>
+        Pipe - Para mostrar las fechas
+    </p>
+</div>
+
+
+<div class="grid">
+    <div class="col-6">
+        <p-card>
+            <ul>
+                <li> fecha  </li>
+                <li> fecha | Date </li>
+                <li> fecha | Date short</li>
+                <li> fecha | Date long</li>
+                <li> fecha | Date yyyyMMdd </li>
+            </ul>
+
+            <hr>
+
+            <ul> 
+                <li> fecha | Date GTM-4</li>
+                <li> fecha | Date GTM-6 </li> 
+            </ul>
+
+        </p-card>
+    </div>
+
+    <div class="col-6">
+        <p-card >
+            <ul>
+                <li> {{ fecha }} </li>
+                <li> {{ fecha | date }} </li>
+                <li> {{ fecha | date :'short'}} </li>
+                <li> {{ fecha | date :'long'}} </li>
+                <li> {{ fecha | date : 'yyyy-MM-dd HH:mm'}} </li>
+            </ul>
+
+            <hr>
+
+            <ul>  
+                <li> {{ fecha | date :'long':'GTM-4':'en' }} </li>
+                <li> {{ fecha | date : 'long':'GMT-6':'es-PE' }} </li>
+            </ul>
+
+        </p-card>
+    </div>
+ 
+</div>

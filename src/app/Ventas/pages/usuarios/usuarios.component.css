@@ -1,0 +1,59 @@
+.contenedor-main{
+    width: 100%;   
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    column-gap: 25px;
+    text-align: center;
+    padding: 2%;
+}
+
+.ContenidoLibros{
+   padding: 5%;  
+}
+
+.titulo {
+    width: 100%;  
+    background-color: orangered;
+    padding: 12px;
+    font-size: 1.2em;
+    color: white;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+    font-weight: 700;
+    align-items: center; 
+  } 
+
+   
+.FormularioCrear {
+    padding: 2%;
+    background-color: white;
+    border: 1px solid #c5c5c58e;
+    box-shadow: 0px 4px 10px #23566f14; 
+    border-radius: 10px;  
+}
+
+
+.form{
+    padding: 2%;
+    display: grid;
+    width: 90%;
+    grid-template-columns: 2fr 3fr; 
+    row-gap: 10px;
+}
+ 
+ 
+.ContenidoTabla{ 
+    background-color: white;
+    border: 1px solid #c5c5c58e;
+    box-shadow: 0px 4px 10px #23566f14;
+    border-radius: 10px;
+    text-align: center; 
+}
+
+.Tabla{
+    width: 100%;
+    padding: 2%;
+}
+ 
